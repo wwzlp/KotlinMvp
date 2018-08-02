@@ -4,16 +4,21 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+// 工程配置
+def cfg = rootProject.ext.android
+// 库依赖
+def libs = rootProject.ext.dependencies
+
 android {
-    compileSdkVersion 27
+    compileSdkVersion cfg.compileSdkVersion
     defaultConfig {
         applicationId "com.zmsoft.kotlindemo"
-        minSdkVersion 15
-        targetSdkVersion 27
-        versionCode 1
-        versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        minSdkVersion cfg.minSdkVersion
+        targetSdkVersion cfg.targetSdkVersion
+        versionCode cfg.versionCode
+        versionName cfg.versionName
     }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -24,10 +29,28 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
-    implementation 'com.android.support:appcompat-v7:27.1.1'
-    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    api "com.android.support:appcompat-v7:27.1.1"
+    api libs["kotlin"]
+
+    api libs["okhttp"]
+    api libs["okhttp-logging"]
+
+    api libs["retrofit2"]
+    api libs["retrofit2-adapter-rxjava2"]
+    api libs["retrofit2-converter-gson"]
+    api libs["stetho"]
+    api libs["stethohttp"]
+    api libs["rxjava2"]
+    api libs["rxandroid2"]
+
+    api libs["eventbus"]
+    api libs["gson"]
+//    api libs["glide"]
+
+//    api libs["xrecyclerview"]
+//    api libs["smartrefreshlayout"]
+//    api libs["smartrefreshheader"]
+
+    api libs["commonslangs"]
+    api libs["toasty"]
 }

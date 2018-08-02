@@ -1,0 +1,47 @@
+// 定义全局的版本变量
+def glideVersion = "3.7.0"
+def okhttpVersion = "3.10.0"
+def eventbusVersion = "3.0.0"
+def gsonVersion = "2.8.2"
+def retrofitVersion = "2.4.0"
+
+
+ext {
+    isBuildApp = false
+
+    android = [
+            compileSdkVersion: 27,
+            buildToolsVersion: "27.0.1",
+            minSdkVersion    : 15,
+            targetSdkVersion : 27,
+            versionCode      : 1,
+            versionName      : "1.0"
+    ]
+
+    dependencies = [
+
+            "eventbus"                 : "org.greenrobot:eventbus:${eventbusVersion}",
+            "gson"                     : "com.google.code.gson:gson:${gsonVersion}",
+            "glide"                    : "com.github.bumptech.glide:glide:${glideVersion}",
+            "okhttp"                   : "com.squareup.okhttp3:okhttp:${okhttpVersion}",
+            "okhttp-logging"           : "com.squareup.okhttp3:logging-interceptor:${okhttpVersion}",
+            "retrofit2-converter-gson" : "com.squareup.retrofit2:converter-gson:${retrofitVersion}",
+            "retrofit2-adapter-rxjava2": "com.squareup.retrofit2:adapter-rxjava2:${retrofitVersion}",
+            "retrofit2"                : "com.squareup.retrofit2:retrofit:${retrofitVersion}",
+            "xrecyclerview"            : "com.jcodecraeer:xrecyclerview:1.3.2",
+            "rxandroid2"               : "io.reactivex.rxjava2:rxandroid:2.0.2",
+            "rxjava2"                  : "io.reactivex.rxjava2:rxjava:2.1.11",
+            "smartrefreshlayout"       : "com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-3",
+            "smartrefreshheader"       : "com.scwang.smartrefresh:SmartRefreshHeader:1.1.0-alpha-3",
+            "commonslangs"             : 'org.apache.commons:commons-lang3:3.1',
+            "toasty"                   : 'com.github.GrenderG:Toasty:1.1.4',
+            "kotlin"                   : "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version",
+            "stetho"                   : "com.facebook.stetho:stetho:1.5.0",
+            "stethohttp"               : "com.facebook.stetho:stetho-okhttp3:1.5.0",
+    ]
+}
+
+static int gitVersionCode() {
+    def count = "git rev-list HEAD --count".execute().text.trim()
+    return count.isInteger() ? count.toInteger() : 0
+}

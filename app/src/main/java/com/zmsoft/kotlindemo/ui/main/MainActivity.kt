@@ -9,7 +9,7 @@ class MainActivity : BaseMvpActivity(), IBaseMvpActivity<MainPresenter>, MainCon
     private var mPresenter: MainPresenter? = null
 
     override fun showText(msg: String) {
-        text.text = "MVP KOTLIN"
+        text.text = msg
     }
 
     override fun getPresenter(): MainPresenter {
