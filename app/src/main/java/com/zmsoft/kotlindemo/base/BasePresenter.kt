@@ -5,7 +5,6 @@ import java.lang.ref.SoftReference
 abstract class BasePresenter<T : IBaseView> {
 
     protected var viewRefrence: SoftReference<T>? = null
-    //TODO RxJava
 
     /**
      * 关联视图

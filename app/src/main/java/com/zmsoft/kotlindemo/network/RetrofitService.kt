@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit
 class RetrofitService{
 
     companion object {
-        private val BASE_URL: String = "https://newsapi.org/v2/"
+        private const val BASE_URL: String = "https://newsapi.org/v2/"
 
         private const val CONNECT_TIMEOUT = 10L
         private const val READ_TIMEOUT = 10L
